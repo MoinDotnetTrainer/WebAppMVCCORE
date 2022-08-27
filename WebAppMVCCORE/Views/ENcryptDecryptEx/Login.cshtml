@@ -1,0 +1,47 @@
+﻿
+
+@model WebAppMVCCORE.Models.ExcryptDecryptModel
+<div class="container">
+    <br />
+    <div class="panel panel-default">
+        <div class="panel-heading">Login</div>
+        <div class="panel-body">
+
+            @if (TempData["MessageRegistration"] != null)
+            {
+                <p class="alert alert-success" id="successMessage">@TempData["MessageRegistration"] <a class="btn btn-success" href="/Login/Login">Go To Sign in </a></p>
+            }
+            @Html.ValidationSummary()
+            @Html.ValidationSummary(true)
+            <form method="post" asp-controller="ENcryptDecryptEx" asp-action="Login">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label class="control-label" asp-for="Username">Username</label>
+                        <input asp-for="Username" onblur="CheckUsernameExists();" type="text" class="form-control" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="control-label" asp-for="Password">Password</label>
+                        <input asp-for="Password" type="password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="control-label" asp-for="ConfirmPassword">ConfirmPassword</label>
+                        <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <br />
+                        <input id="Submit1" type="submit" class="btn btn-primary" value="Login" />
+                        <a class="btn btn-success" href="/Login/Login">Go To Sign in </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

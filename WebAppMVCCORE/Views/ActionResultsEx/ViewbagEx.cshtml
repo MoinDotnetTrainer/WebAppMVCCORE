@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "ViewbagEx";
+}
+
+<h1>ViewbagEx</h1>
+
+@using(Html.BeginForm())
+{
+ <ul>  
+    @foreach (var staff in ViewBag.StaffInfo)
+      {
+       <li>@staff </li>
+      } 
+</ul>
+}

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Tempdata";
+}
+
+<h1>Tempdata</h1>
+
+
+@using(Html.BeginForm())
+{
+ <ul>  
+    @foreach (var staff in TempData["StaffInfo"]  as List<string>)  
+     { 
+      <li>@staff</li> 
+     } 
+  </ul>  
+}
+ 

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebAppMVCCORE.Models.OrdersModelClass>
+
+@{
+    ViewData["Title"] = "Data";
+
+}
+
+@using (Html.BeginForm())
+{
+    <div class="form-control">
+        <div class="col-md-12">
+            <div class="col-md-3">
+                Customer Name:
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownList("Data", new List<SelectListItem>()
+            {
+            new SelectListItem(){ Text= "Vinet", Value = "Vinet"},
+            new SelectListItem(){ Text= "Tomsp", Value = "Tomsp"},
+            new SelectListItem(){ Text= "Confections", Value = "3"},
+            new SelectListItem(){ Text= "Dairy Products", Value = "4"},
+            new SelectListItem(){ Text= "Grains/Cereals", Value = "5"},
+            new SelectListItem(){ Text= "Meat/Poultry", Value = "6"},
+            new SelectListItem(){ Text= "Produce", Value = "7"},
+            new SelectListItem(){ Text= "Seafood", Value = "8"}
+            }, "Select Category")
+            </div>
+            <div>
+                <input type="submit" value="submit" />
+            </div>
+            <br />
+        </div>
+
+        <div class="panel-body">
+        </div>
+
+
+
+    </div>
+}
+

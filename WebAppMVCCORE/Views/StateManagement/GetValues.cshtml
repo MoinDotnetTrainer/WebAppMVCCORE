@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Use Session Value</title>
+
+</head>
+
+<body>
+
+
+    UserName:  @HttpContextAccessor.HttpContext.Session.GetString("userName")
+
+
+
+
+</body>
+
+</html>

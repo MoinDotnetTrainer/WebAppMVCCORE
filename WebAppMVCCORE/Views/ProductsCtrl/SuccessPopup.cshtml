@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "SuccessPopup";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h1>SuccessPopup</h1>
+@using (Html.BeginForm("SuccessPopup", "ProductsCtrl"))
+{
+    <input type="submit" value="Update Customer" class="btn btn-success" name="submitButton" onclick="javascript:return ShowMessage();" />
+
+}
+
+<script>
+    function ShowMessage() {
+        var result = confirm("Do your want to submit form?");
+        if (result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>

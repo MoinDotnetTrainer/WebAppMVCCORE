@@ -1,0 +1,10 @@
+﻿
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "SetSessionGlobally";
+}
+
+<h1>SetSessionGlobally</h1>
+
+    UserName:  @HttpContextAccessor.HttpContext.Session.GetString("userName")
+         

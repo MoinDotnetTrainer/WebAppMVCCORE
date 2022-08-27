@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+<h2>Helper</h2>
+<div class="col-md-4">
+    @using (Html.BeginForm("Index", "ValuesWithoutModel", FormMethod.Post))
+    {
+        <div class="form-group">
+            Name
+            <div class="col-md-10">
+                @Html.TextBox("txtfirstname")
+            </div>
+        </div>
+        <div class="form-group">
+            Address
+            <div class="col-md-10">
+                @Html.TextArea("txtarea", new { @class = "form-control", rows = "5" })
+            </div>
+            <div class="form-group">
+                Password
+                <div class="col-md-10">
+                    @Html.Password("txtpwd", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                Gender
+                <div class="col-md-10">
+                    @Html.RadioButton("Gender", true, new { id = "male-true" })
+                    @Html.Label("male-true", "Male")
+                    @Html.RadioButton("Gender", false, new { id = "female-true" })
+                    @Html.Label("female-true", "Female")
+                </div>
+            </div>
+
+            <div class="form-group">
+                Department
+                <div class="col-md-10">
+                    @Html.DropDownList("DDlDept", new List<SelectListItem>()
+                {
+                new SelectListItem(){ Text= "Vinet", Value = "Vinet"},
+                new SelectListItem(){ Text= "Tomsp", Value = "Tomsp"},
+                new SelectListItem(){ Text= "Confections", Value = "Confections"},
+                new SelectListItem(){ Text= "Dairy Products", Value = "4"},
+                new SelectListItem(){ Text= "Grains/Cereals", Value = "5"},
+                new SelectListItem(){ Text= "Meat/Poultry", Value = "6"},
+                new SelectListItem(){ Text= "Produce", Value = "7"},
+                new SelectListItem(){ Text= "Seafood", Value = "8"}
+                }, "Select Category")
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+            }
+        </div>
+    }
+</div>

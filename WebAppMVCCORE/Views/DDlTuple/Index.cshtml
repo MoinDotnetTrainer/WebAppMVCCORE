@@ -1,0 +1,11 @@
+﻿
+@model Tuple<List<SelectListItem>,List<SelectListItem>>    
+@{    
+    ViewBag.Title = "Index";    
+}    
+<h2>Index</h2>    
+@Html.DropDownList("DeptValue",Model.Item1, "Select","")  @*Getting Tuple first list using Model.Item1*@  
+<br />    
+<br />   
+<br />    
+@Html.DropDownList("StudValue", Model.Item2, "select", "")  @*Getting Tuple second list using Model.Item2*@  

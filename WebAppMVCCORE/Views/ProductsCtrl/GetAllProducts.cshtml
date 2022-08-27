@@ -1,0 +1,74 @@
+﻿@model IEnumerable<WebAppMVCCORE.Models.Product>
+@{
+    ViewData["Title"] = "GetAllProducts";
+}
+
+<h1>GetAllProducts</h1>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAllProducts</title>
+</head>
+<body>
+    @using(Html.BeginForm())
+    {
+    <p>
+        @Html.ActionLink("Add New Products", "InsertProduct")
+    </p>
+
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+           
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            @Html.HiddenFor(model => item.Id)
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductCost)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "UpdateProduct","ProductsCtrl" ,new { id = item.Id },null) |
+                    @Html.ActionLink("Delete", "DeleteProduct" ,new { id = item.Id }, new { onclick = "return confirm('Are sure wants to delete?');" }) |
+                     @Html.ActionLink("Pass Multiple Values", "PassMultipleValues","ProductsCtrl" ,new { id = item.Id , productname = item.ProductName },null) |
+                </td>
+            </tr>
+
+
+
+        }
+
+    </table>
+    }
+</body>
+</html>
+

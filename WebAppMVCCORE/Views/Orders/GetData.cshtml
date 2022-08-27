@@ -1,0 +1,148 @@
+﻿@using WebAppMVCCORE.Models
+@model IEnumerable<OrdersModelClass>
+
+@{
+    ViewData["Title"] = "GetData";
+}
+
+<h1>Get All Data</h1>
+
+@using (Html.BeginForm("GetData", "Orders", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    if (@Model == null)
+    {
+        <div class="form-control">
+
+            <div class="col-md-12">
+
+                <div class="col-md-3">
+
+                    Customer Name:
+
+                </div>
+                @*<div class="col-md-3">
+        @Html.DropDownListFor(model => model.Item1.CustomerID, new SelectList(Model.Item1.listCustomer, "CustomerID", "CustomerID"), "Please select", new { @class = "form-control" })
+        </div>*@
+                <div class="col-md-3">
+                    @Html.DropDownList("Data", new List<SelectListItem>()
+            {
+            new SelectListItem(){ Text= "Vinet", Value = "Vinet"},
+            new SelectListItem(){ Text= "Tomsp", Value = "Tomsp"},
+            new SelectListItem(){ Text= "Confections", Value = "3"},
+            new SelectListItem(){ Text= "Dairy Products", Value = "4"},
+            new SelectListItem(){ Text= "Grains/Cereals", Value = "5"},
+            new SelectListItem(){ Text= "Meat/Poultry", Value = "6"},
+            new SelectListItem(){ Text= "Produce", Value = "7"},
+            new SelectListItem(){ Text= "Seafood", Value = "8"}
+            }, "Select Category")
+                </div>
+
+                <div>
+                    <input type="submit" value="submit" />
+                </div>
+                <br />
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-3">
+            @Html.DropDownList("Data", new List<SelectListItem>()
+    {
+    new SelectListItem(){ Text= "Vinet", Value = "Vinet"},
+    new SelectListItem(){ Text= "Tomsp", Value = "Tomsp"},
+    new SelectListItem(){ Text= "Confections", Value = "3"},
+    new SelectListItem(){ Text= "Dairy Products", Value = "4"},
+    new SelectListItem(){ Text= "Grains/Cereals", Value = "5"},
+    new SelectListItem(){ Text= "Meat/Poultry", Value = "6"},
+    new SelectListItem(){ Text= "Produce", Value = "7"},
+    new SelectListItem(){ Text= "Seafood", Value = "8"}
+    }, "Select Category")
+        </div>
+
+        <div>
+            <input type="submit" value="submit" />
+        </div>
+        <table class="table">
+            <tr>
+                <th>
+                    Orderid
+                </th>
+                <th>
+                    Orderid
+                </th>
+                <th>
+                    Orderid
+                </th>
+                <th>
+                    Orderid
+                </th>
+                <th>
+                    Orderid
+                </th>
+                <th>
+                    Orderid
+                </th>
+                <th>
+                    Orderid
+                </th>
+                <th>
+                    Orderid
+                </th>
+                <th>
+                    Orderid
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                @Html.HiddenFor(model => item.OrderID)
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequiredDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShippedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShipVia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Freight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShipName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "UpdateProduct","ProductsCtrl" ,new { id = item.OrderID },null) |
+                        @Html.ActionLink("Delete", "DeleteProduct" ,new { id = item.OrderID }, new { onclick = "return confirm('Are sure wants to delete?');" }) |
+                        @Html.ActionLink("Pass Multiple Values", "PassMultipleValues","ProductsCtrl" ,new { id = item.OrderID  },null) |
+                    </td>
+                </tr>
+
+
+
+
+
+            }
+
+
+        </table>
+
+    }
+}

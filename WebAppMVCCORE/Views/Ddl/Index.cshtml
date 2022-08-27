@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+ @using (Html.BeginForm())
+    {
+        @Html.DropDownList("test", new SelectList(ViewBag.Fruits, "id", "product_name"), "Please select", new { @id = "ddlFruits" })
+       
+        <input type="submit" value="Submit"/>
+    }

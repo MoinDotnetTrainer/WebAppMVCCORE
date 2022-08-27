@@ -1,0 +1,47 @@
+﻿@using WebAppMVCCORE.Models
+@model ddlProductModelclass
+@{
+    ViewData["Title"] = "GetAllDataOnDdl";
+}
+<h1>GetAllDataOnDdl</h1>
+<div class="form-control">
+    @using (Html.BeginForm())
+    {
+        if (ViewData["Val"] == null)
+        {
+            <div class="col-md-12">
+                <div class="col-md-3">
+
+                    Customer Name:
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.id, new SelectList(Model.ListDepartment, "id", "id"), "Please select", new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.id, new SelectList(Model.ListDepartmentbyID, "id", "id"), "Please select", new { @class = "form-control" })
+                </div>
+                <div>
+                    <input type="submit" value="submit" />
+                </div>
+                <br />
+            </div>
+        }
+        else
+        {
+            <table class="table table-striped">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+                @foreach (var item in ViewData["Val"] as List<WebAppMVCCORE.Models.ddlProductModelclass>)
+                {
+                    <tr>
+                        <td>@item.id</td>
+                        <td>@item.product_name</td>
+                    </tr>
+                }
+            </table>
+        }
+    }
+</div>

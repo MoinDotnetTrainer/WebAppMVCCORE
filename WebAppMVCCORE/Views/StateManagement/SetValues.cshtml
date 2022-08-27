@@ -1,0 +1,79 @@
+﻿
+
+@model WebAppMVCCORE.Models.StateManagementModelEx
+
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width" />
+
+<title>How to use session in Asp.Net Core </title>
+
+</head>
+
+<body>
+
+<div>
+
+    @using (Html.BeginForm())
+
+    {<table>
+
+            <tr>
+
+                <td>UserName</td>
+
+                <td>
+
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+                    <br />
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Password</td>
+
+                <td>
+
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                    <br />
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td></td>
+
+                <td>
+
+                    <br />
+
+                    <input type="submit" value="Login" class="btn-default" />
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    }
+
+</div>
+
+</body>
+
+</html>
+
+ 
